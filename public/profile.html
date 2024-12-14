@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/f91ffb7c10.js" crossorigin="anonymous"></script>
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+    <!-- Include Quill CSS -->
+    <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet">
+
+    <!-- Include Quill JS -->
+    <script src="https://cdn.quilljs.com/1.3.7/quill.min.js"></script>
+
     <style>
-      body {
-        font-family: "Poppins", sans-serif;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-      }
-      main {
-        flex: 1;
-      }
+        body{
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
     </style>
-    <title>Profile Page</title>
   </head>
 
   <body class="bg-gray-100">
     <header class="bg-cyan-100 shadow-md rounded-b-lg fixed top-0 left-0 right-0 z-50">
       <div class="container mx-auto flex items-center justify-between py-3 px-2">
           <div>
-              <a href="#"><img src="../src/logo.png" alt="Logo" class="h-12 w-auto" /></a>
+              <a href="job.html"><img src="../src/logo.png" alt="Logo" class="h-12 w-auto" /></a>
           </div>
           <!-- Navigation -->
           <div class="flex items-center space-x-16">
@@ -58,7 +60,7 @@
             >
               <input type="file" id="profile-picture" class="hidden" />
               <img
-                src="images/profile-placeholder.png"
+                src="../src/profile-placeholder.png"
                 alt="Profile Picture"
                 class="w-auto h-26 rounded-full object-cover"
               />
@@ -172,7 +174,7 @@
                 Phone: <a href="tel:+1234567890" class="hover:underline">+1 (234) 567-890</a>
               </p>
           </div>
-      
+        
           <!-- Social Media Icons -->
           <div class="flex space-x-6">
               <a href="https://facebook.com" target="_blank" aria-label="Facebook">
@@ -189,6 +191,6 @@
               </a>
           </div>
       </div>
-  </footer>
+    </footer>
   </body>
 </html>
