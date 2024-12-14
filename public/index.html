@@ -37,7 +37,7 @@
   <header class="bg-cyan-100 shadow-md rounded-b-lg fixed top-0 left-0 right-0 z-50">
     <div class="container mx-auto flex items-center justify-between py-3 px-2">
       <div>
-        <a href="job.html"><img src="../src/logo.png" alt="Logo" class="h-12 w-auto" /></a>
+        <a href="index.html"><img src="../src/logo.png" alt="Logo" class="h-12 w-auto" /></a>
       </div>
       <!-- Navigation -->
       <div class="flex items-center space-x-16">
@@ -53,6 +53,9 @@
   <div class="py-24 text-blue-800">
     <div class="flex flex-col gap-8" id="articles">
       <h1 class="text-center text-lg md:text-xl lg:text-2xl"><b>JOB</b></h1>
+      <div class="text-center">
+        <button class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-offset-2 transition duration-300 ease-in-out transform hover:scale-105" onclick="filterJobsByLocation('Malaysia')">Show Jobs in Malaysia</button>
+      </div>
     </div>
   </div>
 
@@ -97,7 +100,6 @@
   </footer>
 
   <script>
-    // Fetch articles from the server
     fetch("/api/articles")
       .then((response) => response.json())
       .then((articles) => {
@@ -105,18 +107,69 @@
         articles.reverse().forEach((article, index) => {
           const articleElement = document.createElement("div");
           articleElement.innerHTML = `
+            <div class="bg-[#e6f4ff] p-6 w-11/12 mx-auto text-blue-800 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col gap-4" id="articleContent">
+              <h1 class="text-center text-base md:text-lg font-bold text-center text-blue-800 hover:text-blue-600 transition-all duration-300">
+                <b>${article.title}</b>
+              </h1>
+              <div class="border-b-2 flex justify-between px-4 py-2 text-blue-700">
+                <h2 class="flex gap-2 items-center justify-center text-sm font-medium">
+                  <i class="fa-solid fa-building fa-sm text-blue-500"></i>${article.author}
+                </h2>
+                <p class="text-sm text-gray-500">${new Date(article.uploadDate).toLocaleDateString()}</p>
+              </div>
+              <p class="text-sm text-blue-800 leading-relaxed px-4">
+                <strong>Location:</strong> ${article.Location}
+              </p>
+              <p class="text-sm text-blue-800 leading-relaxed px-4">
+                <strong>Payment:</strong> ${article.Payment} RM
+              </p>
+              <p class="text-sm text-blue-800 leading-relaxed px-4">
+                <strong>Job Type:</strong> ${article.Position}
+              </p>
+              <div id="quillContainer-${index}" class="text-sm text-blue-800 px-4">
+                ${article.quillContent.ops.map((op) => op.insert).join("")}
+              </div>
+              <div class="text-right">
+                <button class="rating-btn text-sm bg-yellow-500 text-white px-4 py-2 rounded-full hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2 transition duration-300 ease-in-out transform hover:scale-105 mr-2" onclick="openRatingModal()">
+                  <i class="fa-solid fa-star"></i> Rate Job
+                </button>
+                <button class="apply-btn text-sm bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-300 ease-in-out transform hover:scale-105">Apply Job</button>
+              </div>
+            </div>
+          `;
+          articlesDiv.appendChild(articleElement);
+
+          // Initialize Quill for article content
+          const quill = new Quill(`#quillContainer-${index}`, {
+            theme: "bubble",
+            readOnly: true,
+            modules: { toolbar: false },
+          });
+          quill.setContents(article.quillContent.ops);
+        });
+      })
+      .catch((error) => console.error("Error fetching articles:", error));
+
+    // Filter jobs by location
+    function filterJobsByLocation(location) {
+      fetch("/api/articles")
+        .then((response) => response.json())
+        .then((articles) => {
+          const articlesDiv = document.getElementById("articles");
+          articlesDiv.innerHTML = '<h1 class="text-center text-lg md:text-xl lg:text-2xl"><b>JOB</b></h1>';
+          articles.reverse().forEach((article, index) => {
+            if (article.Location === location) {
+              const articleElement = document.createElement("div");
+              articleElement.innerHTML = `
                 <div class="bg-[#e6f4ff] p-6 w-11/12 mx-auto text-blue-800 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col gap-4" id="articleContent">
                   <h1 class="text-center text-base md:text-lg font-bold text-center text-blue-800 hover:text-blue-600 transition-all duration-300">
                     <b>${article.title}</b>
                   </h1>
                   <div class="border-b-2 flex justify-between px-4 py-2 text-blue-700">
                     <h2 class="flex gap-2 items-center justify-center text-sm font-medium">
-                      <i class="fa-solid fa-building fa-sm text-blue-500"></i>${article.author
-            }
+                      <i class="fa-solid fa-building fa-sm text-blue-500"></i>${article.author}
                     </h2>
-                    <p class="text-sm text-gray-500">${new Date(
-              article.uploadDate
-            ).toLocaleDateString()}</p>
+                    <p class="text-sm text-gray-500">${new Date(article.uploadDate).toLocaleDateString()}</p>
                   </div>
                   <p class="text-sm text-blue-800 leading-relaxed px-4">
                     <strong>Location:</strong> ${article.Location}
@@ -131,28 +184,29 @@
                     ${article.quillContent.ops.map((op) => op.insert).join("")}
                   </div>
                   <div class="text-right">
-                    <button
-  class="rating-btn text-sm bg-yellow-500 text-white px-4 py-2 rounded-full hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2 transition duration-300 ease-in-out transform hover:scale-105 mr-2"
-  onclick="openRatingModal()"
->
-  <i class="fa-solid fa-star"></i> Rate Job
-</button>
+                    <button class="rating-btn text-sm bg-yellow-500 text-white px-4 py-2 rounded-full hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2 transition duration-300 ease-in-out transform hover:scale-105 mr-2" onclick="openRatingModal()">
+                      <i class="fa-solid fa-star"></i> Rate Job
+                    </button>
                     <button class="apply-btn text-sm bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-300 ease-in-out transform hover:scale-105">Apply Job</button>
                   </div>
                 </div>
               `;
-          articlesDiv.appendChild(articleElement);
+              articlesDiv.appendChild(articleElement);
 
-          // Initialize Quill for article content
-          const quill = new Quill(`#quillContainer-${index}`, {
-            theme: "bubble",
-            readOnly: true,
-            modules: { toolbar: false },
+              // Initialize Quill for article content
+              const quill = new Quill(`#quillContainer-${index}`, {
+                theme: "bubble",
+                readOnly: true,
+                modules: { toolbar: false },
+              });
+              quill.setContents(article.quillContent.ops);
+            }
           });
-          quill.setContents(article.quillContent.ops);
-        });
-      })
-      .catch((error) => console.error("Error fetching articles:", error));
+        })
+        .catch((error) => console.error("Error fetching articles:", error));
+    }
+
+    // Event handler for rating button click
 
     // Event delegation for handling apply button click
     document.addEventListener("DOMContentLoaded", () => {
@@ -187,6 +241,12 @@
         }
       });
     });
+  </script>
+
+  <script>
+    function handleButtonClick(article) {
+      alert("Clicked article: ");
+    }
   </script>
 
   <!-- Rating Modal -->
