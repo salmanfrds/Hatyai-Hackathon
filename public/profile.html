@@ -9,7 +9,6 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <script src="https://cdn.tailwindcss.com"></script>
     <style>
       body {
         font-family: "Poppins", sans-serif;
@@ -22,6 +21,40 @@
       }
     </style>
     <title>Profile Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/f91ffb7c10.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/f91ffb7c10.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Swiper -->
+    <link rel="stylesheet" href="../src/swiper-bundle.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Font Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Include Quill CSS -->
+    <link
+      href="https://cdn.quilljs.com/1.3.7/quill.snow.css"
+      rel="stylesheet"
+    />
+
+    <!-- Include Quill JS -->
+    <script src="https://cdn.quilljs.com/1.3.7/quill.min.js"></script>
   </head>
 
   <body class="bg-gray-100">
@@ -35,7 +68,7 @@
         <!-- Logo -->
         <div>
           <a href="#">
-            <img src="images/logo.png" alt="Logo" class="h-16 w-auto" />
+            <img src="../src/logo.png" alt="Logo" class="h-16 w-auto" />
           </a>
         </div>
         <!-- Navigation -->
@@ -72,7 +105,7 @@
             >
               <input type="file" id="profile-picture" class="hidden" />
               <img
-                src="images/profile-placeholder.png"
+                src="../src/profile-placeholder.png"
                 alt="Profile Picture"
                 class="w-auto h-26 rounded-full object-cover"
               />
@@ -178,8 +211,9 @@
     <!-- Footer -->
     <footer class="bg-blue-900 text-white mt-8">
       <div
-        class="container mx-auto py-8 px-14 flex flex-col md:flex-row justify-between items-center"
+        class="container mx-auto py-8 px-4 flex flex-col md:flex-row justify-between items-center"
       >
+        <!-- Contact Information -->
         <div class="mb-4 md:mb-0">
           <p class="text-lg font-medium">
             Email:
@@ -195,32 +229,24 @@
           </p>
         </div>
 
-        <!-- Social Media -->
+        <!-- Social Media Icons -->
         <div class="flex space-x-6">
-          <a href="#"
-            ><img
-              src="images/facebook.png"
-              class="h-8 w-8 hover:opacity-75"
-              alt="Facebook"
-          /></a>
-          <a href="#"
-            ><img
-              src="images/twitter.png"
-              class="h-8 w-8 hover:opacity-75"
-              alt="Twitter"
-          /></a>
-          <a href="#"
-            ><img
-              src="images/instagram.png"
-              class="h-8 w-8 hover:opacity-75"
-              alt="Instagram"
-          /></a>
-          <a href="#"
-            ><img
-              src="images/linkedin.png"
-              class="h-8 w-8 hover:opacity-75"
-              alt="LinkedIn"
-          /></a>
+          <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+            <i class="fa-brands fa-facebook fa-lg"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+            <i class="fa-brands fa-x-twitter fa-lg"></i>
+          </a>
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            aria-label="Instagram"
+          >
+            <i class="fa-brands fa-instagram fa-lg"></i>
+          </a>
+          <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin fa-lg"></i>
+          </a>
         </div>
       </div>
     </footer>
