@@ -7,7 +7,19 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@contentful/rich-text-html-renderer@12.0.0/dist/rich-text-html-renderer.es5.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
   <script src="script.js"></script>
+  <script src="main.js"></script>
+  <script src="chat.js"></script>
+  <link
+  rel="Tab icon"
+  href="assets/images/sparrow favicon.png"
+  type="image/png"
+/>
+<link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+  rel="stylesheet"
+/>
 </head>
 <body class="bg-gray-100">
     <header class="bg-white shadow">
@@ -69,10 +81,126 @@
             </div>
         </div>
     </main>
+ <!-- Popup chat window -->
 
-    <footer class="bg-gray-800 text-white py-4">
-        <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2023 My Blog. All rights reserved.</p>
+    <!-- chat open -->
+    <div class="chat-bar-open" id="chat-open">
+        <button
+          id="chat-open-button"
+          type="button"
+          class="collapsible close"
+          onclick="chatOpen()"
+        >
+          <img src="assets/images/Sparrow Bird.png" alt="Sparrow Bird image" />
+        </button>
+      </div>
+  
+      <!-- chat close -->
+      <div class="chat-bar-close" id="chat-close">
+        <button
+          id="chat-close-button"
+          type="button"
+          class="collapsible close"
+          onclick="chatClose()"
+        >
+          <i class="material-icons-outlined"> close </i>
+        </button>
+      </div>
+  
+      <!-- chat-window 1 -->
+      <div class="chat-window" id="chat-window1">
+        <div class="hi-there">
+          <p class="p1">Hi There</p>
+          <br />
+          <p class="p2">Hello Ask Us Anythig,Share Your<br />Feedback.</p>
+        </div>
+        <div class="start-conversation">
+          <h1>Start a Conversation</h1>
+          <br />
+          <p>The team typically replies in few minutes.</p>
+          <button
+            class="new-conversation"
+            type="button"
+            onclick="openConversation()"
+          >
+            <span>New Conversation</span
+            ><i class="material-icons-outlined"> send </i>
+          </button>
+        </div>
+      </div>
+  
+      <!-- chat chat-window 2 -->
+      <div class="chat-window2" id="chat-window2">
+        <div class="message-box" id="messageBox">
+          <div class="hi-there">
+            <p class="p1">Hi There</p>
+            <br />
+            <p class="p2">The team typically replies in few minutes.</p>
+          </div>
+          <div class="first-chat">
+            <p>Is there any offlines versions available for Maxeon Player?</p>
+            <div class="arrow"></div>
+          </div>
+          <div class="second-chat">
+            <div class="circle"></div>
+            <p>Currently we don't have but we will launch soon.</p>
+            <div class="arrow"></div>
+          </div>
+        </div>
+        <div class="input-box">
+          <div class="surveysparrow">
+            <img src="assets/images/sparrow favicon.png" />
+            <p>we run on surveysparrow</p>
+          </div>
+          <div class="write-reply">
+            <input
+              class="inputText"
+              type="text"
+              id="textInput"
+              placeholder="Write a reply..."
+            />
+          </div>
+          <div class="send-button">
+            <button
+              type="submit"
+              class="send-message"
+              id="send"
+              onclick="userResponse()"
+            >
+              <i class="material-icons-outlined"> send </i>
+            </button>
+          </div>
+          </div>
+          </div>
+
+     <!-- Footer -->
+     <footer class="bg-blue-900 text-white">
+        <div class="container mx-auto py-8 px-4 flex flex-col md:flex-row justify-between items-center">
+            <!-- Contact Information -->
+            <div class="mb-4 md:mb-0">
+                <p class="text-lg font-medium">
+                  Email: <a href="mailto:info@company.com" class="hover:underline">info@company.com</a>
+                </p>
+                <p class="text-lg font-medium">
+                  Phone: <a href="tel:+1234567890" class="hover:underline">+1 (234) 567-890</a>
+                </p>
+            </div>
+        
+            <!-- Social Media Icons -->
+            <div class="flex space-x-6">
+                <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook fa-lg"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+                    <i class="fa-brands fa-x-twitter fa-lg"></i>
+                </a>
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram fa-lg"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin fa-lg"></i>
+                </a>
+            </div>
         </div>
     </footer>
 </body>
