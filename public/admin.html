@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/f91ffb7c10.js" crossorigin="anonymous"></script>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/f91ffb7c10.js" crossorigin="anonymous"></script>
+
+    <!-- Font Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+
+    <style>
+        body{
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+    </style>
+</head>
+<body class="bg-blue-300 min-h-screen flex flex-col items-center justify-center p-4 relative">
+    <div id="adminPage" class="hidden w-[80vw] bg-white shadow-2xl rounded-xl p-8 border border-blue-400">
+        <h1 class="text-3xl font-bold text-center text-blue-800 mb-8 uppercase tracking-wider">Post JOB</h1>
+        <form id="articleForm" class="space-y-6">
+            <div class="grid grid-row-2 md:grid-cols-3 gap-2 md:gap-4">
+                <div class="col-span-1 md:col-span-2">
+                    <label for="title" class="block text-sm font-medium text-blue-800 mb-2">Job Title</label>
+                    <input 
+                        type="text" 
+                        id="title" 
+                        placeholder="Enter The Job Title" 
+                        required 
+                        class="w-full px-4 py-2 border-2 border-blue-400 rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+                    >
+                </div>
+                <div class="col-span-1">
+                    <label for="author" class="block text-sm font-medium text-blue-800 mb-2">Company Name</label>
+                    <input 
+                        type="text" 
+                        id="author" 
+                        placeholder="Your Company Name" 
+                        required 
+                        class="w-full px-4 py-2 border-2 border-blue-400 rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+                    >
+                </div>
+            </div>
+            <div class="grid grid-row-2 md:grid-cols-3 gap-2 md:gap-4">
+                <div class="col-span-1 md:col-span-2">
+                    <label for="Position" class="block text-sm font-medium text-blue-800 mb-2">Job Type</label>
+                    <select 
+                        id="Position" 
+                        required 
+                        class="w-full px-4 py-2 border-2 border-blue-400 rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+                    >
+                        <option value="" disabled selected>Select Job Type</option>
+                        <option value="full-time">Full Time</option>
+                        <option value="part-time">Part Time</option>
+                    </select>
+                </div>                
+                <div class="col-span-1">
+                    <label for="Payment" class="block text-sm font-medium text-blue-800 mb-2">Payment</label>
+                    <input 
+                        type="text" 
+                        id="Payment" 
+                        placeholder="In RM" 
+                        required 
+                        class="w-full px-4 py-2 border-2 border-blue-400 rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+                    >
+                </div>
+            </div>
+            <div>
+                <label for="Location" class="block text-sm font-medium text-blue-800 mb-2">Location</label>
+                <textarea 
+                    id="Location" 
+                    placeholder="Job Location" 
+                    required 
+                    rows="1" 
+                    class="w-full px-4 py-2 border-2 border-blue-400 rounded-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+                ></textarea>
+            </div>
+            <div class="font-medium text-blue-800">Details<div id="editor" class="min-h-[60vh]"></div></div>
+            <div class="text-center">
+                <button 
+                    type="submit" 
+                    class="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-300 ease-in-out transform hover:scale-105"
+                >
+                    Submit Job
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const articleForm = document.getElementById('articleForm');
+
+        articleForm.addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            const title = document.getElementById('title').value;
+            const author = document.getElementById('author').value;
+            const Position = document.getElementById('Position').value;
+            const Location = document.getElementById('Location').value;
+            const Payment = document.getElementById('Payment').value;
+            const quillContent = quill.getContents();
+
+            fetch('/api/articles', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ title, author, Position, Location, Payment, quillContent}),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Article added:', data);
+                // Clear form fields
+                document.getElementById('title').value = '';
+                document.getElementById('Position').value = '';
+                document.getElementById('author').value = '';
+                document.getElementById('Location').value = '';
+                document.getElementById('Payment').value = '';
+                quill.setContents([]);
+                
+                // Enhanced success notification
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Job Posted!',
+                    text: 'Your job listing has been successfully submitted.',
+                    confirmButtonColor: '#3b82f6', // Updated to a blue shade (#3b82f6 matches Tailwind's blue-500)
+                    background: '#f0f9ff', // Optional: Matches the lighter blue shade of the background
+                    color: '#1e40af', // Optional: Darker text color (blue-900)
+                });
+            })
+            .catch(error => {
+                console.error('Error adding article:', error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Submission Failed',
+                    text: 'There was an issue submitting your article. Please try again.',
+                    confirmButtonColor: '#ef4444'
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('/check-auth', {
+                method: 'GET',
+                credentials: 'include', // Corrected typo here
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.authenticated) { // Corrected typo here
+                    console.log('User is authenticated');
+                    document.getElementById('adminPage').classList.remove('hidden')
+                } else {
+                    console.log('User is not authenticated');
+                    window.location.href = '/login.html'
+                }
+            });
+        });
+
+        const quill = new Quill('#editor', {
+            modules: {
+                toolbar: [
+                    [{ header: [1, 2, 3, 4, false] }], // Heading options
+                    [{ font: [] }], // Font family options
+                    [{ size: ['medium', 'large', 'huge'] }], // Font size options
+                    [{ align: [] }], // Text alignment options
+                    ['bold', 'italic', 'underline'], // Text formatting
+                    ['strike', 'blockquote'], // Additional text formatting
+                    [{ list: 'ordered' }, { list: 'bullet' }], // Lists
+                    ['link'],
+                ]
+            },
+            placeholder: 'Enter Detailed Job',
+            theme: 'snow', // or 'bubble'
+        });
+    </script>
+    
+    <!-- Sweet Alert for better notifications -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
