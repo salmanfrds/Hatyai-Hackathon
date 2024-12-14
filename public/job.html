@@ -1,188 +1,342 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Job Post</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/f91ffb7c10.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/f91ffb7c10.js"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- Font Poppins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Include Quill CSS -->
-    <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet">
+    <link
+      href="https://cdn.quilljs.com/1.3.7/quill.snow.css"
+      rel="stylesheet"
+    />
 
     <!-- Include Quill JS -->
     <script src="https://cdn.quilljs.com/1.3.7/quill.min.js"></script>
 
     <style>
-        body{
-            font-family: "Poppins", sans-serif;
-            font-weight: 400;
-            font-style: normal;
-        }
+      body {
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
     </style>
-</head>
-    <body class="text-blue-900 bg-zinc-200">
-        <header class="bg-cyan-100 shadow-md rounded-b-lg fixed top-0 left-0 right-0 z-50">
-            <div class="container mx-auto flex items-center justify-between py-3 px-2">
-                <div>
-                    <a href="job.html"><img src="../src/logo.png" alt="Logo" class="h-12 w-auto" /></a>
-                </div>
-                <!-- Navigation -->
-                <div class="flex items-center space-x-16">
-                    <a href="job.html" class="text-lg font-medium hover:text-blue-700">Job Search</a>
-                    <a href="profile.html" class="text-lg font-medium hover:text-blue-700">Profile</a>
+  </head>
+  <body class="text-blue-900 bg-zinc-200">
+    <header
+      class="bg-cyan-100 shadow-md rounded-b-lg fixed top-0 left-0 right-0 z-50"
+    >
+      <div
+        class="container mx-auto flex items-center justify-between py-3 px-2"
+      >
+        <div>
+          <a href="job.html"
+            ><img src="../src/logo.png" alt="Logo" class="h-12 w-auto"
+          /></a>
+        </div>
+        <!-- Navigation -->
+        <div class="flex items-center space-x-16">
+          <a href="job.html" class="text-lg font-medium hover:text-blue-700"
+            >Job Search</a
+          >
+          <a href="profile.html" class="text-lg font-medium hover:text-blue-700"
+            >Profile</a
+          >
 
-                    <!-- Career -->
-                    <a href="#" class="text-blue-900 text-lg font-medium hover:text-blue-700">Career</a>
-                </div>
-            </div>
-        </header>
+          <!-- Career -->
+          <a
+            href="#"
+            class="text-blue-900 text-lg font-medium hover:text-blue-700"
+            >Career</a
+          >
+        </div>
+      </div>
+    </header>
 
-        <div class="py-24 text-blue-800">
-            <div class="flex flex-col gap-8" id="articles">
-                <h1 class="text-center text-lg md:text-xl lg:text-2xl"><b>JOB</b></h1>
-            </div>    
+    <div class="py-24 text-blue-800">
+      <div class="flex flex-col gap-8" id="articles">
+        <h1 class="text-center text-lg md:text-xl lg:text-2xl"><b>JOB</b></h1>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-center my-4 mb-8">
+      <a
+        href="admin.html"
+        class="bg-blue-500 text-white px-8 py-3 rounded-full hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-offset-2 transition duration-300 ease-in-out transform hover:scale-105"
+      >
+        <span> <b>Post A Job </b><i class="fa-solid fa-plus"></i> </span>
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white">
+      <div
+        class="container mx-auto py-8 px-4 flex flex-col md:flex-row justify-between items-center"
+      >
+        <!-- Contact Information -->
+        <div class="mb-4 md:mb-0">
+          <p class="text-lg font-medium">
+            Email:
+            <a href="mailto:info@company.com" class="hover:underline"
+              >hatyai@company.com</a
+            >
+          </p>
+          <p class="text-lg font-medium">
+            Phone:
+            <a href="tel:+1234567890" class="hover:underline"
+              >+1 (234) 567-890</a
+            >
+          </p>
         </div>
 
-        <div class="flex items-center justify-center my-4 mb-8">
-            <a href="admin.html" class="bg-blue-500 text-white px-8 py-3 rounded-full hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-offset-2 transition duration-300 ease-in-out transform hover:scale-105">
-                <span>
-                    <b>Post A Job  </b><i class="fa-solid fa-plus"></i>
-                </span>
-            </a>
+        <!-- Social Media Icons -->
+        <div class="flex space-x-6">
+          <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+            <i class="fa-brands fa-facebook fa-lg"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+            <i class="fa-brands fa-x-twitter fa-lg"></i>
+          </a>
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            aria-label="Instagram"
+          >
+            <i class="fa-brands fa-instagram fa-lg"></i>
+          </a>
+          <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin fa-lg"></i>
+          </a>
         </div>
+      </div>
+    </footer>
 
-        <!-- Footer -->
-        <footer class="bg-blue-900 text-white">
-            <div class="container mx-auto py-8 px-4 flex flex-col md:flex-row justify-between items-center">
-                <!-- Contact Information -->
-                <div class="mb-4 md:mb-0">
-                    <p class="text-lg font-medium">
-                      Email: <a href="mailto:info@company.com" class="hover:underline">hatyai@company.com</a>
-                    </p>
-                    <p class="text-lg font-medium">
-                      Phone: <a href="tel:+1234567890" class="hover:underline">+1 (234) 567-890</a>
-                    </p>
+    <script>
+      // Fetch articles from the server
+      fetch("/api/articles")
+        .then((response) => response.json())
+        .then((articles) => {
+          const articlesDiv = document.getElementById("articles");
+          articles.reverse().forEach((article, index) => {
+            const articleElement = document.createElement("div");
+            articleElement.innerHTML = `
+                <div class="bg-[#e6f4ff] p-6 w-11/12 mx-auto text-blue-800 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col gap-4" id="articleContent">
+                  <h1 class="text-center text-base md:text-lg font-bold text-center text-blue-800 hover:text-blue-600 transition-all duration-300">
+                    <b>${article.title}</b>
+                  </h1>
+                  <div class="border-b-2 flex justify-between px-4 py-2 text-blue-700">
+                    <h2 class="flex gap-2 items-center justify-center text-sm font-medium">
+                      <i class="fa-solid fa-building fa-sm text-blue-500"></i>${
+                        article.author
+                      }
+                    </h2>
+                    <p class="text-sm text-gray-500">${new Date(
+                      article.uploadDate
+                    ).toLocaleDateString()}</p>
+                  </div>
+                  <p class="text-sm text-blue-800 leading-relaxed px-4">
+                    <strong>Location:</strong> ${article.Location}
+                  </p>
+                  <p class="text-sm text-blue-800 leading-relaxed px-4">
+                    <strong>Payment:</strong> ${article.Payment} RM
+                  </p>
+                  <p class="text-sm text-blue-800 leading-relaxed px-4">
+                    <strong>Job Type:</strong> ${article.Position}
+                  </p>
+                  <div id="quillContainer-${index}" class="text-sm text-blue-800 px-4">
+                    ${article.quillContent.ops.map((op) => op.insert).join("")}
+                  </div>
+                  <div class="text-right">
+                    <button
+  class="rating-btn text-sm bg-yellow-500 text-white px-4 py-2 rounded-full hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2 transition duration-300 ease-in-out transform hover:scale-105 mr-2"
+  onclick="openRatingModal()"
+>
+  <i class="fa-solid fa-star"></i> Rate Job
+</button>
+                    <button class="apply-btn text-sm bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-300 ease-in-out transform hover:scale-105">Apply Job</button>
+                  </div>
                 </div>
-            
-                <!-- Social Media Icons -->
-                <div class="flex space-x-6">
-                    <a href="https://facebook.com" target="_blank" aria-label="Facebook">
-                        <i class="fa-brands fa-facebook fa-lg"></i>
-                    </a>
-                    <a href="https://twitter.com" target="_blank" aria-label="Twitter">
-                        <i class="fa-brands fa-x-twitter fa-lg"></i>
-                    </a>
-                    <a href="https://instagram.com" target="_blank" aria-label="Instagram">
-                        <i class="fa-brands fa-instagram fa-lg"></i>
-                    </a>
-                    <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
-                        <i class="fa-brands fa-linkedin fa-lg"></i>
-                    </a>
-                </div>
-            </div>
-        </footer>
+              `;
+            articlesDiv.appendChild(articleElement);
 
-        <script>
-            // Fetch articles from the server
-            fetch('/api/articles')
-                .then(response => response.json())
-                .then(articles => {
-                    const articlesDiv = document.getElementById('articles');
-                    articles.reverse().forEach((article, index) => {
-                        const articleElement = document.createElement('div');
-                        articleElement.innerHTML = `
-                            <div class="bg-[#e6f4ff] p-6 w-11/12 mx-auto text-blue-800 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col gap-4" id="articleContent">
-                                <h1 class="text-center text-base md:text-lg font-bold text-center text-blue-800 hover:text-blue-600 transition-all duration-300">
-                                    <b>${article.title}</b>
-                                </h1>
-                                <div class="border-b-2 flex justify-between px-4 py-2 text-blue-700">
-                                    <h2 class="flex gap-2 items-center justify-center text-sm font-medium">
-                                        <i class="fa-solid fa-building fa-sm text-blue-500"></i>${article.author}
-                                    </h2>
-                                    <p class="text-sm text-gray-500">${new Date(article.uploadDate).toLocaleDateString()}</p>
-                                </div>
-                                <p class="text-sm text-blue-800 leading-relaxed px-4">
-                                    <strong>Location:</strong> ${article.Location}
-                                </p>
-                                <p class="text-sm text-blue-800 leading-relaxed px-4">
-                                    <strong>Payment:</strong> ${article.Payment} RM
-                                </p>
-                                <p class="text-sm text-blue-800 leading-relaxed px-4">
-                                    <strong>Job Type:</strong> ${article.Position}
-                                </p>
-                                <div id="quillContainer-${index}" class="text-sm text-blue-800 px-4">
-                                    ${article.quillContent.ops.map(op => op.insert).join('')}
-                                </div>
-                                <div class="text-right">
-                                    <button class="apply-btn text-sm bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-300 ease-in-out transform hover:scale-105"> Apply Job </button>
-                                </div>
-                            </div>
-                        `;
-                        
-                        articlesDiv.appendChild(articleElement);
-
-                        const quillContent = article.quillContent;
-                        console.log('Quill Content:', quillContent);
-
-                        const quill = new Quill(`#quillContainer-${index}`, {
-                            theme: 'bubble', // Or snow
-                            readOnly: true,
-                            modules: {
-                                toolbar: false
-                            }
-                        });
-
-                        quill.setContents(quillContent.ops);
-                    });
-                })
-            .catch(error => console.error('Error fetching articles:', error));
-            
-            document.addEventListener("DOMContentLoaded", () => {
-                // Delegate the event listener to the parent container
-                const articlesDiv = document.getElementById('articles');
-                articlesDiv.addEventListener('click', (event) => {
-                    console.log('mantap');
-                    Swal.fire({
-                        icon: 'info',
-                        title: 'Submitting Your Application',
-                        text: 'We will submit your resume to the company shortly.',
-                        cancelButtonColor: '#f44336',  // Red color for the cancel button
-                        confirmButtonColor: '#10b981',  // Green color for the confirmation button
-                        background: '#e5f9f2',
-                        color: '#064e3b',
-                        showCancelButton: true,  // Show the cancel button
-                        showConfirmButton: true,  // Show the confirm button
-                        confirmButtonText: 'Submit',  // Text for the confirm button
-                        cancelButtonText: 'Cancel',  // Text for the cancel button
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            // When the confirm button is clicked
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Application Submitted!',
-                                text: 'Your resume has been successfully submitted to the company.',
-                                confirmButtonColor: '#3b82f6',  // Blue confirmation button
-                                background: '#f0f9ff',
-                                color: '#1e40af',
-                            });
-                        } else if (result.isDismissed) {
-                            // When the cancel button is clicked
-                            console.log('Submission canceled');
-                        }
-                    });
-                });
+            // Initialize Quill for article content
+            const quill = new Quill(`#quillContainer-${index}`, {
+              theme: "bubble",
+              readOnly: true,
+              modules: { toolbar: false },
             });
-        </script>
+            quill.setContents(article.quillContent.ops);
+          });
+        })
+        .catch((error) => console.error("Error fetching articles:", error));
 
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</body>
+      // Event delegation for handling apply button click
+      document.addEventListener("DOMContentLoaded", () => {
+        const articlesDiv = document.getElementById("articles");
+        articlesDiv.addEventListener("click", (event) => {
+          if (event.target.classList.contains("apply-btn")) {
+            Swal.fire({
+              icon: "info",
+              title: "Submitting Your Application",
+              text: "We will submit your resume to the company shortly.",
+              cancelButtonColor: "#f44336",
+              confirmButtonColor: "#10b981",
+              background: "#e5f9f2",
+              color: "#064e3b",
+              showCancelButton: true,
+              confirmButtonText: "Submit",
+              cancelButtonText: "Cancel",
+            }).then((result) => {
+              if (result.isConfirmed) {
+                Swal.fire({
+                  icon: "success",
+                  title: "Application Submitted!",
+                  text: "Your resume has been successfully submitted to the company.",
+                  confirmButtonColor: "#3b82f6",
+                  background: "#f0f9ff",
+                  color: "#1e40af",
+                });
+              } else if (result.isDismissed) {
+                console.log("Submission canceled");
+              }
+            });
+          }
+        });
+      });
+    </script>
+
+    <!-- Rating Modal -->
+    <div
+      id="ratingModal"
+      class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden"
+    >
+      <div
+        class="bg-white p-6 rounded-lg shadow-lg w-11/12 sm:w-1/2 lg:w-1/3 text-center"
+      >
+        <!-- Modal Header -->
+        <h2 class="text-2xl font-semibold text-blue-900 mb-4">
+          Tell People What You Think
+        </h2>
+
+        <!-- Star Rating -->
+        <div class="flex justify-center space-x-2 mb-6">
+          <button
+            class="star text-gray-400 text-3xl focus:outline-none hover:text-yellow-500"
+            onclick="setRating(1)"
+          >
+            <i class="fa-solid fa-star"></i>
+          </button>
+          <button
+            class="star text-gray-400 text-3xl focus:outline-none hover:text-yellow-500"
+            onclick="setRating(2)"
+          >
+            <i class="fa-solid fa-star"></i>
+          </button>
+          <button
+            class="star text-gray-400 text-3xl focus:outline-none hover:text-yellow-500"
+            onclick="setRating(3)"
+          >
+            <i class="fa-solid fa-star"></i>
+          </button>
+          <button
+            class="star text-gray-400 text-3xl focus:outline-none hover:text-yellow-500"
+            onclick="setRating(4)"
+          >
+            <i class="fa-solid fa-star"></i>
+          </button>
+          <button
+            class="star text-gray-400 text-3xl focus:outline-none hover:text-yellow-500"
+            onclick="setRating(5)"
+          >
+            <i class="fa-solid fa-star"></i>
+          </button>
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="flex justify-center space-x-4">
+          <button
+            class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition duration-300"
+            onclick="submitRating()"
+          >
+            Submit
+          </button>
+          <button
+            class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition duration-300"
+            onclick="closeRatingModal()"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rating Modal Script -->
+    <script>
+      let currentRating = 0;
+
+      // Open the rating modal
+      function openRatingModal() {
+        document.getElementById("ratingModal").classList.remove("hidden");
+      }
+
+      // Close the rating modal
+      function closeRatingModal() {
+        document.getElementById("ratingModal").classList.add("hidden");
+        resetStars();
+      }
+
+      // Set the rating (1-5 stars)
+      function setRating(rating) {
+        currentRating = rating;
+        const stars = document.querySelectorAll(".star");
+        stars.forEach((star, index) => {
+          if (index < rating) {
+            star.classList.add("text-yellow-500");
+            star.classList.remove("text-gray-400");
+          } else {
+            star.classList.remove("text-yellow-500");
+            star.classList.add("text-gray-400");
+          }
+        });
+      }
+
+      // Reset all stars to gray
+      function resetStars() {
+        currentRating = 0;
+        const stars = document.querySelectorAll(".star");
+        stars.forEach((star) => {
+          star.classList.remove("text-yellow-500");
+          star.classList.add("text-gray-400");
+        });
+      }
+
+      // Submit the rating
+      function submitRating() {
+        if (currentRating === 0) {
+          alert("Please select a rating before submitting.");
+        } else {
+          alert(`Thank you! You rated this job ${currentRating} stars.`);
+          closeRatingModal();
+        }
+      }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
 </html>
