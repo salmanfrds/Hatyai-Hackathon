@@ -1,0 +1,29 @@
+[
+  {
+    "username": "salman",
+    "password": "salmantap",
+    "preference": "data analyst",
+    "address": "kict",
+    "phone": "0111",
+    "email": "salman.com"
+  },
+  {
+    "username": "fdasfdasfdasdfa",
+    "password": "dfsafdas",
+    "role": "admin"
+  },
+  {
+    "username": "salmantap",
+    "password": "salmantap",
+    "role": "user"
+  },
+  {
+    "username": "salmantap1",
+    "password": "salmantap1",
+    "role": "admin"
+  },
+  {
+    "username": "fdsafdas",
+    "password": "fdsafdas"
+  }
+]

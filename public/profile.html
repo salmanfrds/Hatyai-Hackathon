@@ -70,125 +70,97 @@
       </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="pt-28">
-      <div class="container mx-auto px-8 py-6 bg-white shadow-md rounded-lg">
+    <main class="pt-28 bg-gray-50 min-h-screen">
+      <div class="container mx-auto px-8 py-6 bg-white shadow-lg rounded-xl">
         <!-- Profile Section -->
-        <div class="flex space-x-8 mt-4">
+        <div class="flex space-x-8 items-center mt-4">
           <!-- Profile Image Upload -->
-          <div class="flex-shrink-0">
-            <label
-              for="profile-picture"
-              class="block w-24 h-24 bg-gray-200 rounded-full cursor-pointer"
-            >
+          <div class="flex-shrink-0 relative">
+            <label for="profile-picture" class="block w-28 h-28 bg-gray-200 rounded-full cursor-pointer overflow-hidden">
               <input type="file" id="profile-picture" class="hidden" />
-              <img
-                src="../src/profile-placeholder.png"
-                alt="Profile Picture"
-                class="w-auto h-26 rounded-full object-cover"
-              />
+              <img src="../src/profile-placeholder.png" alt="Profile Picture" class="w-full h-full object-cover" />
             </label>
+            <div class="absolute bottom-0 right-0 bg-blue-500 w-6 h-6 rounded-full flex items-center justify-center text-white">
+              <i class="fas fa-edit text-xs"></i>
+            </div>
           </div>
-
+      
           <!-- Profile Form -->
           <div class="w-full grid grid-cols-2 gap-6">
             <!-- Name -->
             <div>
-              <label for="name" class="text-gray-600 font-medium">NAME</label>
-              <input
-                type="text"
-                id="name"
-                placeholder="Enter your name"
-                class="border rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
+              <label for="name" class="text-gray-600 font-semibold">Name</label>
+              <input type="text" id="name" placeholder="Enter your name"
+                class="border rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" />
             </div>
-
+      
             <!-- Address -->
             <div>
-              <label for="address" class="text-gray-600 font-medium"
-                >ADDRESS</label
-              >
-              <input
-                type="text"
-                id="address"
-                placeholder="Enter your address"
-                class="border rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
+              <label for="address" class="text-gray-600 font-semibold">Address</label>
+              <input type="text" id="address" placeholder="Enter your address"
+                class="border rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" />
             </div>
-
+      
             <!-- Job Type -->
             <div>
-              <label for="Job Type" class="text-gray-600 font-medium"
-                >JOB PREFERENCE</label
-              >
-              <input
-                type="text"
-                id="Job Type"
-                placeholder="Enter desired type of job"
-                class="border rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
+              <label for="jobType" class="text-gray-600 font-semibold">Job Preference</label>
+              <input type="text" id="jobType" placeholder="Enter desired type of job"
+                class="border rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" />
             </div>
-
+      
             <!-- Phone -->
             <div>
-              <label for="phone" class="text-gray-600 font-medium">PHONE</label>
-              <input
-                type="text"
-                id="phone"
-                placeholder="Enter phone number"
-                class="border rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
+              <label for="phone" class="text-gray-600 font-semibold">Phone</label>
+              <input type="text" id="phone" placeholder="Enter phone number"
+                class="border rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" />
             </div>
-
+      
             <!-- Resume -->
-            <div>
-              <label for="resume" class="text-gray-600 font-medium"
-                >RESUME</label
-              >
-              <input
-                type="file"
-                id="resume"
-                class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-100 file:text-blue-700 hover:file:bg-blue-200"
-              />
+            <div class="col-span-2">
+              <label for="resume" class="text-gray-600 font-semibold">Resume</label>
+              <input type="file" id="resume"
+                class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-100 file:text-blue-700 hover:file:bg-blue-200" />
             </div>
-
+      
             <!-- Email -->
             <div>
-              <label for="email" class="text-gray-600 font-medium">EMAIL</label>
-              <input
-                type="email"
-                id="email"
-                placeholder="Enter email address"
-                class="border rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
+              <label for="email" class="text-gray-600 font-semibold">Email</label>
+              <input type="email" id="email" placeholder="Enter email address"
+                class="border rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" />
             </div>
           </div>
         </div>
+      
+        <!-- Submit Button -->
+        <div class="mt-6 flex justify-end">
+          <button type="submit"
+            class="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-600 hover:scale-105 transform transition">
+            Save Changes
+          </button>
+        </div>
       </div>
-      <div class="mt-8 bg-gray-200 p-6 rounded-lg shadow-md text-center">
-        <h2 class="text-2xl font-semibold text-gray-700 mb-4">Get Started</h2>
+    
+      <div class="mt-10 bg-gradient-to-br from-gray-100 to-gray-200 p-8 rounded-xl shadow-lg text-center">
+        <h2 class="text-3xl font-semibold text-gray-800 mb-4">Get Started</h2>
         <p class="text-gray-600 mb-6">
-          Sign up to explore opportunities or log in if you already have an
-          account.
+          Sign up to explore opportunities or log in if you already have an account.
         </p>
         <div class="flex justify-center space-x-4">
           <a href="signup.html" class="inline-block">
             <button
-              class="bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-green-600 hover:scale-105 transform transition"
-            >
+              class="bg-gradient-to-r from-green-400 to-green-600 text-white px-8 py-3 rounded-lg shadow-md hover:scale-105 transform transition">
               Signup
             </button>
           </a>
           <a href="loginUser.html" class="inline-block">
             <button
-              class="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-600 hover:scale-105 transform transition"
-            >
+              class="bg-gradient-to-r from-blue-400 to-blue-600 text-white px-8 py-3 rounded-lg shadow-md hover:scale-105 transform transition">
               Login
             </button>
           </a>
         </div>
       </div>
-    </main>
+    </main>    
 
     <footer class="bg-blue-900 text-white">
       <div
