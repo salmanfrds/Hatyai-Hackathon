@@ -10,13 +10,6 @@
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/f91ffb7c10.js" crossorigin="anonymous"></script>
 
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/f91ffb7c10.js" crossorigin="anonymous"></script>
-
-    <!-- Swiper -->
-    <link rel="stylesheet" href="../src/swiper-bundle.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
     <!-- Font Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,12 +33,12 @@
         <header class="bg-cyan-100 shadow-md rounded-b-lg fixed top-0 left-0 right-0 z-50">
             <div class="container mx-auto flex items-center justify-between py-3 px-2">
                 <div>
-                    <a href="#"><img src="../src/logo.png" alt="Logo" class="h-12 w-auto" /></a>
+                    <a href="job.html"><img src="../src/logo.png" alt="Logo" class="h-12 w-auto" /></a>
                 </div>
                 <!-- Navigation -->
                 <div class="flex items-center space-x-16">
-                    <a href="#" class="text-lg font-medium hover:text-blue-700">Job Search</a>
-                    <a href="#" class="text-lg font-medium hover:text-blue-700">Profile</a>
+                    <a href="job.html" class="text-lg font-medium hover:text-blue-700">Job Search</a>
+                    <a href="profile.html" class="text-lg font-medium hover:text-blue-700">Profile</a>
 
                     <!-- Career -->
                     <a href="#" class="text-blue-900 text-lg font-medium hover:text-blue-700">Career</a>
@@ -121,7 +114,7 @@
                                     <strong>Location:</strong> ${article.Location}
                                 </p>
                                 <p class="text-sm text-blue-800 leading-relaxed px-4">
-                                    <strong>Payment:</strong> ${article.Payment}
+                                    <strong>Payment:</strong> ${article.Payment} RM
                                 </p>
                                 <p class="text-sm text-blue-800 leading-relaxed px-4">
                                     <strong>Job Type:</strong> ${article.Position}
@@ -129,6 +122,9 @@
                                 <div id="quillContainer-${index}" class="text-sm text-blue-800 px-4">
                                     ${article.quillContent.ops.map(op => op.insert).join('')}
                                 </div>
+                    <div class="text-right">
+                        <button class="apply-btn text-sm bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-300 ease-in-out transform hover:scale-105"> Apply Job </button>
+                    </div>
                             </div>
                         `;
                         
@@ -149,6 +145,44 @@
                     });
                 })
             .catch(error => console.error('Error fetching articles:', error));
+            
+            document.addEventListener("DOMContentLoaded", () => {
+                // Delegate the event listener to the parent container
+                const articlesDiv = document.getElementById('articles');
+                articlesDiv.addEventListener('click', (event) => {
+                    console.log('mantap');
+                    Swal.fire({
+                        icon: 'info',
+                        title: 'Submitting Your Application',
+                        text: 'We will submit your resume to the company shortly.',
+                        cancelButtonColor: '#f44336',  // Red color for the cancel button
+                        confirmButtonColor: '#10b981',  // Green color for the confirmation button
+                        background: '#e5f9f2',
+                        color: '#064e3b',
+                        showCancelButton: true,  // Show the cancel button
+                        showConfirmButton: true,  // Show the confirm button
+                        confirmButtonText: 'Submit',  // Text for the confirm button
+                        cancelButtonText: 'Cancel',  // Text for the cancel button
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // When the confirm button is clicked
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Application Submitted!',
+                                text: 'Your resume has been successfully submitted to the company.',
+                                confirmButtonColor: '#3b82f6',  // Blue confirmation button
+                                background: '#f0f9ff',
+                                color: '#1e40af',
+                            });
+                        } else if (result.isDismissed) {
+                            // When the cancel button is clicked
+                            console.log('Submission canceled');
+                        }
+                    });
+                });
+            });
         </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

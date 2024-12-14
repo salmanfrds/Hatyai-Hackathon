@@ -88,5 +88,20 @@
       ]
     },
     "uploadDate": "2024-12-14"
+  },
+  {
+    "title": "Full Stack Developer",
+    "author": "MOTION-U",
+    "Position": "full-time",
+    "Location": "KICT, IIUM",
+    "Payment": "2000",
+    "quillContent": {
+      "ops": [
+        {
+          "insert": "Join us!! we will provide the best job and best salary for yoiu\n"
+        }
+      ]
+    },
+    "uploadDate": "2024-12-14"
   }
 ]

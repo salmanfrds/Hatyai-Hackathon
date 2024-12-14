@@ -9,6 +9,10 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/f91ffb7c10.js" crossorigin="anonymous"></script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       body {
@@ -25,37 +29,19 @@
   </head>
 
   <body class="bg-gray-100">
-    <!-- Header -->
-    <header
-      class="bg-cyan-100 shadow-md rounded-b-lg fixed top-0 left-0 right-0 z-50"
-    >
-      <div
-        class="container mx-auto flex items-center justify-between py-4 px-14"
-      >
-        <!-- Logo -->
-        <div>
-          <a href="#">
-            <img src="images/logo.png" alt="Logo" class="h-16 w-auto" />
-          </a>
-        </div>
-        <!-- Navigation -->
-        <div class="flex items-center space-x-16">
-          <a
-            href="#"
-            class="text-blue-900 text-xl font-medium hover:text-blue-700"
-            >Job Search</a
-          >
-          <a
-            href="#"
-            class="text-blue-900 text-xl font-medium hover:text-blue-700"
-            >Profile</a
-          >
-          <a
-            href="#"
-            class="text-blue-900 text-xl font-medium hover:text-blue-700"
-            >Career</a
-          >
-        </div>
+    <header class="bg-cyan-100 shadow-md rounded-b-lg fixed top-0 left-0 right-0 z-50">
+      <div class="container mx-auto flex items-center justify-between py-3 px-2">
+          <div>
+              <a href="#"><img src="../src/logo.png" alt="Logo" class="h-12 w-auto" /></a>
+          </div>
+          <!-- Navigation -->
+          <div class="flex items-center space-x-16">
+              <a href="job.html" class="text-lg font-medium hover:text-blue-700">Job Search</a>
+              <a href="profile.html" class="text-lg font-medium hover:text-blue-700">Profile</a>
+
+              <!-- Career -->
+              <a href="#" class="text-blue-900 text-lg font-medium hover:text-blue-700">Career</a>
+          </div>
       </div>
     </header>
 
@@ -175,54 +161,34 @@
       </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-blue-900 text-white mt-8">
-      <div
-        class="container mx-auto py-8 px-14 flex flex-col md:flex-row justify-between items-center"
-      >
-        <div class="mb-4 md:mb-0">
-          <p class="text-lg font-medium">
-            Email:
-            <a href="mailto:info@company.com" class="hover:underline"
-              >info@company.com</a
-            >
-          </p>
-          <p class="text-lg font-medium">
-            Phone:
-            <a href="tel:+1234567890" class="hover:underline"
-              >+1 (234) 567-890</a
-            >
-          </p>
-        </div>
-
-        <!-- Social Media -->
-        <div class="flex space-x-6">
-          <a href="#"
-            ><img
-              src="images/facebook.png"
-              class="h-8 w-8 hover:opacity-75"
-              alt="Facebook"
-          /></a>
-          <a href="#"
-            ><img
-              src="images/twitter.png"
-              class="h-8 w-8 hover:opacity-75"
-              alt="Twitter"
-          /></a>
-          <a href="#"
-            ><img
-              src="images/instagram.png"
-              class="h-8 w-8 hover:opacity-75"
-              alt="Instagram"
-          /></a>
-          <a href="#"
-            ><img
-              src="images/linkedin.png"
-              class="h-8 w-8 hover:opacity-75"
-              alt="LinkedIn"
-          /></a>
-        </div>
+    <footer class="bg-blue-900 text-white">
+      <div class="container mx-auto py-8 px-4 flex flex-col md:flex-row justify-between items-center">
+          <!-- Contact Information -->
+          <div class="mb-4 md:mb-0">
+              <p class="text-lg font-medium">
+                Email: <a href="mailto:info@company.com" class="hover:underline">info@company.com</a>
+              </p>
+              <p class="text-lg font-medium">
+                Phone: <a href="tel:+1234567890" class="hover:underline">+1 (234) 567-890</a>
+              </p>
+          </div>
+      
+          <!-- Social Media Icons -->
+          <div class="flex space-x-6">
+              <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                  <i class="fa-brands fa-facebook fa-lg"></i>
+              </a>
+              <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+                  <i class="fa-brands fa-x-twitter fa-lg"></i>
+              </a>
+              <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                  <i class="fa-brands fa-instagram fa-lg"></i>
+              </a>
+              <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+                  <i class="fa-brands fa-linkedin fa-lg"></i>
+              </a>
+          </div>
       </div>
-    </footer>
+  </footer>
   </body>
 </html>
