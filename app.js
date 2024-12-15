@@ -28,6 +28,18 @@ app.get('/api/articles', (req, res) => {
     });
 });
 
+app.get('/api/applied', (req, res) => {
+    const articlesPath = path.join(__dirname, 'src', 'applied.json');
+    fs.readFile(articlesPath, 'utf8', (err, data) => {
+        if (err) {
+            return res.status(500).json({ error: 'Error reading applied file' });
+        }
+        const articles = JSON.parse(data); 
+        res.json(articles);
+    });
+});
+
+
 // Endpoint to update articles (for the admin interface)
 app.post('/api/articles', (req, res) => {
     const articlesPath = path.join(__dirname, 'src', 'articles.json');

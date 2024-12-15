@@ -56,3 +56,16 @@ client.getEntries({ content_type: 'careerAdvice' })
     });
   })
   .catch(console.error);
+
+  client.getEntries({ content_type: 'careerAdvice' })
+  .then((response) => {
+    const recentPostsContainer = document.querySelector('.recent-posts');
+    response.items.forEach((post) => {
+      const postLink = document.createElement('a');
+      postLink.href = `/blog/${post.fields.slug}`;
+      postLink.textContent = post.fields.title;
+      postLink.className = 'text-blue-500 hover:underline';
+      recentPostsContainer.appendChild(postLink);
+    });
+  })
+  .catch(console.error);
